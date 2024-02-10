@@ -104,7 +104,7 @@ d3.csv("ds_salaries.csv").then(rawData => {
         d != "employee_residence" &&
         d != "company_size"
     );
-    
+
     const y = {};
     dimensions.forEach(name => {
         y[name] = d3.scaleLinear()
@@ -149,7 +149,7 @@ d3.csv("ds_salaries.csv").then(rawData => {
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-size", "20px")
-    .text("Parallel Plot of Data Science Jobs");
+    .text("Parallel Plot for Data Science Jobs");
 
     const pieSvg = d3.select("svg")
         .append("g")
@@ -159,7 +159,7 @@ d3.csv("ds_salaries.csv").then(rawData => {
         .key(d => d.experience_level)
         .rollup(values => values.length)
         .entries(rawData);
-    
+
     const pieData = expCount.map(d => ({
         category: d.key,
         value: d.value
@@ -219,7 +219,7 @@ d3.csv("ds_salaries.csv").then(rawData => {
 
             return `${categoryName}: ${percentage}%`;
         });
-    
+
     pcSvg.append("text")
     .attr("x", svgWidth / 1.5 + 100)
     .attr("y", pcMargin.top - 50) 
